@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports — CRM Dashboard</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/reports.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Navigasi utama">
+    <div class="sidebar-header">
+      <h1 class="logo">CRM<br>Dashboard</h1>
+      <button class="toggle-btn" id="toggleSidebarBtn" aria-label="Toggle sidebar">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-chart-pie nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">
+            <i class="fas fa-users nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Contacts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="deals.html" class="nav-link">
+            <i class="fas fa-handshake nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Deals</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="tasks.html" class="nav-link">
+            <i class="fas fa-check-square nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Tasks</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="reports.html" class="nav-link" aria-current="page">
+            <i class="fas fa-chart-bar nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <img
+          src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff"
+          alt="Foto profil Admin"
+          class="user-avatar"
+        >
+        <div class="user-info">
+          <p class="user-name">Admin</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+      <button class="logout-btn btn-logout" aria-label="Logout">
+        <span>
+          <i class="fas fa-sign-out-alt logout-icon" aria-hidden="true"></i>
+          <span class="logout-label">Logout</span>
+        </span>
+        <i class="fas fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <h2 class="page-title">Reports</h2>
+      <nav class="header-nav" aria-label="Menu atas">
+        <ul>
+          <li><a href="contactpage.html">Contacts</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="notification-btn" aria-label="Notifikasi">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="notif-badge" aria-live="polite"></span>
+        </button>
+        <div class="notification-card" role="region" aria-label="Panel notifikasi">
+          <ul class="notification-list"></ul>
+        </div>
+        <button class="user-menu-btn" id="userMenuBtn">
+          <span>Admin</span>
+          <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-profile">
+            <p class="user-dropdown-name">Admin</p>
+            <p class="user-dropdown-email">admin@crm.com</p>
+          </div>
+          <button class="user-dropdown-logout btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Body -->
+    <div class="page-body">
+      <!-- Stats Row -->
+      <div class="reports-stats" role="region" aria-label="Statistik laporan">
+        <div class="report-stat-card">
+          <div class="report-stat-header">
+            <i class="fas fa-chart-bar report-stat-icon" aria-hidden="true"></i>
+            Total Revenue
+          </div>
+          <p class="report-stat-value">Rp 120.000.000</p>
+          <span class="report-stat-change positive">+20% vs Last Month</span>
+        </div>
+        <div class="report-stat-card">
+          <div class="report-stat-header">
+            <i class="fas fa-trophy report-stat-icon" aria-hidden="true"></i>
+            Deals Won
+          </div>
+          <p class="report-stat-value">15</p>
+          <span class="report-stat-change positive">+3 vs Last Month</span>
+        </div>
+        <div class="report-stat-card">
+          <div class="report-stat-header">
+            <i class="fas fa-times-circle report-stat-icon" aria-hidden="true"></i>
+            Deals Lost
+          </div>
+          <p class="report-stat-value">5</p>
+          <span class="report-stat-change negative">-2 vs Last Month</span>
+        </div>
+        <div class="report-stat-card">
+          <div class="report-stat-header">
+            <i class="fas fa-percentage report-stat-icon" aria-hidden="true"></i>
+            Conversion Rate
+          </div>
+          <p class="report-stat-value">20%</p>
+          <span class="report-stat-change positive">+3% vs Last Month</span>
+          <div class="mini-bars" aria-hidden="true">
+            <div class="mini-bar" style="height:40%"></div>
+            <div class="mini-bar" style="height:55%"></div>
+            <div class="mini-bar" style="height:45%"></div>
+            <div class="mini-bar" style="height:65%"></div>
+            <div class="mini-bar" style="height:75%"></div>
+            <div class="mini-bar" style="height:100%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="reports-grid">
+
+        <!-- Sales Performance -->
+        <section class="report-card" aria-labelledby="sales-perf-heading">
+          <div class="report-card-header">
+            <h3 id="sales-perf-heading" class="report-card-title">Sales Performance</h3>
+          </div>
+          <div class="report-card-body">
+            <div class="chart-container">
+              <canvas id="salesPerfChart"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deals by Source -->
+        <section class="report-card" aria-labelledby="deals-source-heading">
+          <div class="report-card-header">
+            <h3 id="deals-source-heading" class="report-card-title">Deals by Source</h3>
+          </div>
+          <div class="report-card-body">
+            <div class="pie-layout">
+              <div class="pie-chart-wrap">
+                <canvas id="dealSourceChart"></canvas>
+              </div>
+              <div class="pie-legend">
+                <div class="pie-legend-item">
+                  <div class="pie-legend-left">
+                    <span class="pie-legend-dot" style="background:#3b82f6"></span>
+                    Website
+                  </div>
+                  <span class="pie-legend-pct">35%</span>
+                </div>
+                <div class="pie-legend-item">
+                  <div class="pie-legend-left">
+                    <span class="pie-legend-dot" style="background:#10b981"></span>
+                    Referral
+                  </div>
+                  <span class="pie-legend-pct">25%</span>
+                </div>
+                <div class="pie-legend-item">
+                  <div class="pie-legend-left">
+                    <span class="pie-legend-dot" style="background:#f59e0b"></span>
+                    Email
+                  </div>
+                  <span class="pie-legend-pct">20%</span>
+                </div>
+                <div class="pie-legend-item">
+                  <div class="pie-legend-left">
+                    <span class="pie-legend-dot" style="background:#ef4444"></span>
+                    Cold Call
+                  </div>
+                  <span class="pie-legend-pct">20%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deals Summary -->
+        <section class="report-card" aria-labelledby="deals-summary-heading">
+          <div class="report-card-header">
+            <h3 id="deals-summary-heading" class="report-card-title">Deals Summary</h3>
+          </div>
+          <div class="report-card-body" style="padding: 0;">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>Stage</th>
+                  <th>No. Deals</th>
+                  <th>Total Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="deals.html" class="stage-link">Lead</a></td>
+                  <td>6</td>
+                  <td>Rp 75.000.000</td>
+                </tr>
+                <tr>
+                  <td><a href="deals.html" class="stage-link">Qualified</a></td>
+                  <td>5</td>
+                  <td>Rp 145.000.000</td>
+                </tr>
+                <tr>
+                  <td><a href="deals.html" class="stage-link">Proposal</a></td>
+                  <td>5</td>
+                  <td>Rp 60.000.000</td>
+                </tr>
+                <tr>
+                  <td><a href="deals.html" class="stage-link">Won</a></td>
+                  <td>15</td>
+                  <td>Rp 120.000.000</td>
+                </tr>
+                <tr>
+                  <td><a href="deals.html" class="stage-link">Lost</a></td>
+                  <td>5</td>
+                  <td>Rp 30.000.000</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td>36</td>
+                  <td>Rp 430.000.000</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="report-card" aria-labelledby="recent-activity-heading">
+          <div class="report-card-header">
+            <h3 id="recent-activity-heading" class="report-card-title">Recent Activity</h3>
+          </div>
+          <div class="report-card-body" style="padding: 0 1.5rem;">
+            <ul class="activity-list">
+              <li class="activity-item">
+                <img
+                  src="https://ui-avatars.com/api/?name=Budi+Santoso&background=4f46e5&color=fff&size=36"
+                  alt="Budi Santoso"
+                  class="activity-avatar"
+                >
+                <div class="activity-content">
+                  <p class="activity-text">
+                    <a href="#">Budi Santoso</a> won the deal "POS System" worth Rp 20.000.000
+                  </p>
+                  <time class="activity-time">1 day ago</time>
+                </div>
+              </li>
+              <li class="activity-item">
+                <img
+                  src="https://ui-avatars.com/api/?name=Sari+Lestari&background=10b981&color=fff&size=36"
+                  alt="Sari Lestari"
+                  class="activity-avatar"
+                >
+                <div class="activity-content">
+                  <p class="activity-text">
+                    <a href="#">Sari Lestari</a> added a new deal "SEO Package".
+                  </p>
+                  <time class="activity-time">3 days ago</time>
+                </div>
+              </li>
+              <li class="activity-item">
+                <img
+                  src="https://ui-avatars.com/api/?name=Joko+Prabowo&background=f59e0b&color=fff&size=36"
+                  alt="Joko Prabowo"
+                  class="activity-avatar"
+                >
+                <div class="activity-content">
+                  <p class="activity-text">
+                    <a href="#">Joko Prabowo</a> updated the status of "POS System" to Negotiation
+                  </p>
+                  <time class="activity-time">3 days ago</time>
+                </div>
+              </li>
+              <li class="activity-item">
+                <img
+                  src="https://ui-avatars.com/api/?name=Putri+Rahmawati&background=ef4444&color=fff&size=36"
+                  alt="Putri Rahmawati"
+                  class="activity-avatar"
+                >
+                <div class="activity-content">
+                  <p class="activity-text">
+                    <a href="#">Putri Rahmawati</a> lost the deal "Inventory App" worth Rp 45.000.000
+                  </p>
+                  <time class="activity-time">5 days ago</time>
+                </div>
+              </li>
+              <li class="activity-item">
+                <img
+                  src="https://ui-avatars.com/api/?name=Lina+Hartono&background=8b5cf6&color=fff&size=36"
+                  alt="Lina Hartono"
+                  class="activity-avatar"
+                >
+                <div class="activity-content">
+                  <p class="activity-text">
+                    New contact "<a href="#">Lina Hartono</a>" was added.
+                  </p>
+                  <time class="activity-time">5 days ago</time>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2026 CRM Dashboard. All rights reserved.</p>
+      <a href="#" class="footer-link">Contact Us</a>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks — CRM Dashboard</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/tasks.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Navigasi utama">
+    <div class="sidebar-header">
+      <h1 class="logo">CRM<br>Dashboard</h1>
+      <button class="toggle-btn" id="toggleSidebarBtn" aria-label="Toggle sidebar">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-chart-pie nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">
+            <i class="fas fa-users nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Contacts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="deals.html" class="nav-link">
+            <i class="fas fa-handshake nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Deals</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="tasks.html" class="nav-link" aria-current="page">
+            <i class="fas fa-check-square nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Tasks</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reports.html" class="nav-link">
+            <i class="fas fa-chart-bar nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <img
+          src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff"
+          alt="Foto profil Admin"
+          class="user-avatar"
+        >
+        <div class="user-info">
+          <p class="user-name">Admin</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+      <button class="logout-btn btn-logout" aria-label="Logout">
+        <span>
+          <i class="fas fa-sign-out-alt logout-icon" aria-hidden="true"></i>
+          <span class="logout-label">Logout</span>
+        </span>
+        <i class="fas fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <h2 class="page-title">Tasks</h2>
+      <nav class="header-nav" aria-label="Menu atas">
+        <ul>
+          <li><a href="contact.html">Contacts</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="tasks.html" class="active">Tasks</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="notification-btn" aria-label="Notifikasi">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="notif-badge" aria-live="polite"></span>
+        </button>
+        <div class="notification-card" role="region" aria-label="Panel notifikasi">
+          <ul class="notification-list"></ul>
+        </div>
+        <button class="user-menu-btn" id="userMenuBtn">
+          <span>Admin</span>
+          <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-profile">
+            <p class="user-dropdown-name">Admin</p>
+            <p class="user-dropdown-email">admin@crm.com</p>
+          </div>
+          <button class="user-dropdown-logout btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Body -->
+    <div class="page-body">
+      <!-- Toolbar -->
+      <div class="tasks-toolbar">
+        <button id="btnAddTask" class="btn btn-primary">
+          <i class="fas fa-plus" aria-hidden="true"></i>
+          Add Task
+        </button>
+        <div class="input-group">
+          <i class="fas fa-search input-icon" aria-hidden="true"></i>
+          <input type="search" id="searchInput" class="form-input" placeholder="Search tasks..." aria-label="Cari task">
+        </div>
+        <select id="filterRelated" class="form-select" aria-label="Filter by Related To">
+          <option value="">Filter by Related To</option>
+          <option>Andi Wijaya</option>
+          <option>Sari Lestari</option>
+          <option>Joko Prabowo</option>
+        </select>
+        <select id="filterStatus" class="form-select" aria-label="Filter by Status">
+          <option value="">Filter by Status</option>
+          <option value="pending">Pending</option>
+          <option value="overdue">Overdue</option>
+          <option value="completed">Completed</option>
+        </select>
+        <button id="btnClearFilter" class="btn btn-outline">Clear Filters</button>
+      </div>
+
+      <!-- Tasks Card -->
+      <article class="card" aria-labelledby="tasks-table-heading">
+        <h3 id="tasks-table-heading" class="visually-hidden">Daftar Tasks</h3>
+
+        <!-- Tabs -->
+        <div class="card-body" style="padding-bottom: 0;">
+          <div class="tasks-tabs" role="tablist">
+            <button class="task-tab active" role="tab" aria-selected="true"
+            data-tab="all">All</button>
+            <button class="task-tab" role="tab" aria-selected="false"
+            data-tab="today">
+              Today
+              <span class="task-tab-count"></span>
+            </button>
+            <button class="task-tab tab-overdue" role="tab"
+            aria-selected="false" data-tab="overdue">
+              Overdue
+              <span class="task-tab-count"></span>
+            </button>
+            <button class="task-tab" role="tab" aria-selected="false"
+            data-tab="completed">
+              Completed
+              <span class="task-tab-count"></span>
+              <!-- <i class="fas fa-check-circle" aria-hidden="true"></i> -->
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrapper">
+          <table class="data-table" aria-label="Tabel tasks">
+            <thead>
+              <tr>
+                <th scope="col" class="col-check">
+                  <input type="checkbox" aria-label="Pilih semua">
+                </th>
+                <th scope="col">Task</th>
+                <th scope="col">Related To</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Status</th>
+                <th scope="col" style="text-align:center">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="taskTableBody">
+              <tr>
+                <td class="col-check"><input type="checkbox" aria-label="Pilih task"></td>
+                <td><span class="task-name">Call Mr. Andi</span></td>
+                <td>
+                  <span class="related-name">
+                    <i class="fas fa-user-circle" aria-hidden="true"></i> Andi Wijaya
+                  </span>
+                </td>
+                <td>
+                  <span class="due-date today">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Today
+                  </span>
+                </td>
+                <td><span class="badge status-pending">Pending</span></td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat task"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit task"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus task"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" aria-label="Pilih task"></td>
+                <td><span class="task-name">Follow Up Meeting with Sari</span></td>
+                <td>
+                  <span class="related-name">
+                    <i class="fas fa-user-circle" aria-hidden="true"></i> Sari Lestari
+                  </span>
+                </td>
+                <td>
+                  <span class="due-date">
+                    <i class="fas fa-calendar" aria-hidden="true"></i> Apr 26, 2024
+                  </span>
+                </td>
+                <td><span class="badge status-pending">Pending</span></td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat task"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit task"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus task"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" aria-label="Pilih task"></td>
+                <td>
+                  <span class="task-name">Email Proposal to PT Sukses</span>
+                </td>
+                <td>
+                  <span class="related-name">
+                    <i class="fas fa-handshake" aria-hidden="true"></i> Software License
+                  </span>
+                  <span class="related-company">PT Sukses Sejahtera</span>
+                </td>
+                <td>
+                  <span class="due-date">
+                    <i class="fas fa-calendar" aria-hidden="true"></i> Apr 25, 2024
+                  </span>
+                </td>
+                <td><span class="badge status-pending">Pending</span></td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat task"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit task"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus task"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" aria-label="Pilih task"></td>
+                <td><span class="task-name">Follow Up on CRM Implementation</span></td>
+                <td>
+                  <span class="related-name">
+                    <i class="fas fa-handshake" aria-hidden="true"></i> CRM Implementation
+                  </span>
+                  <span class="related-company">PT Globalindo</span>
+                </td>
+                <td>
+                  <span class="due-date">
+                    <i class="fas fa-calendar" aria-hidden="true"></i> Apr 30, 2024
+                  </span>
+                </td>
+                <td><span class="badge status-pending">Pending</span></td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat task"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit task"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus task"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" aria-label="Pilih task"></td>
+                <td><span class="task-name overdue">Send Invoice to Toko Jaya</span></td>
+                <td>
+                  <span class="related-name">
+                    <i class="fas fa-handshake" aria-hidden="true"></i> POS System
+                  </span>
+                  <span class="related-company">Toko Makmur</span>
+                </td>
+                <td>
+                  <span class="due-date overdue">
+                    <i class="fas fa-calendar-times" aria-hidden="true"></i> Apr 19, 2024
+                  </span>
+                </td>
+                <td><span class="badge status-overdue">Overdue</span></td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat task"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit task"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus task"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" aria-label="Pilih task"></td>
+                <td><span class="task-name overdue">Schedule Demo for PT Anugrah</span></td>
+                <td>
+                  <span class="related-name">
+                    <i class="fas fa-user-circle" aria-hidden="true"></i> Joko Prabowo
+                  </span>
+                  <span class="related-company">Joko Prabowo</span>
+                </td>
+                <td>
+                  <span class="due-date overdue">
+                    <i class="fas fa-calendar-times" aria-hidden="true"></i> Apr 18, 2024
+                  </span>
+                </td>
+                <td><span class="badge status-overdue">Overdue</span></td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat task"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit task"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus task"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" aria-label="Pilih task"></td>
+                <td><span class="task-name" style="color:var(--text-primary)">Meeting with PT Daya Pro</span></td>
+                <td>
+                  <span class="related-name">
+                    <i class="fas fa-handshake" aria-hidden="true"></i> Cloud Solution
+                  </span>
+                  <span class="related-company">PT Daya Pro</span>
+                </td>
+                <td>
+                  <span class="due-date">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Apr 15, 2024
+                  </span>
+                </td>
+                <td><span class="badge status-completed">Completed</span></td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat task"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit task"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus task"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="table-footer">
+          <p id="paginationInfo" style="font-size:0.85rem; color:var(--text-muted)">Showing 1 to 7 of 20 entries</p>
+          <nav id="paginationNav" class="pagination" aria-label="Navigasi halaman">
+            <button class="page-btn">Prev</button>
+            <button class="page-btn active" aria-current="page">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">Next</button>
+          </nav>
+        </div>
+      </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2026 CRM Dashboard. All rights reserved.</p>
+      <a href="#" class="footer-link">Contact Us</a>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/tasks.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts — CRM Dashboard</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/contacts.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Navigasi utama">
+    <div class="sidebar-header">
+      <h1 class="logo">CRM<br>Dashboard</h1>
+      <button class="toggle-btn" id="toggleSidebarBtn" aria-label="Toggle sidebar">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-chart-pie nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="contact.html" class="nav-link" aria-current="page">
+            <i class="fas fa-users nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Contacts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="deals.html" class="nav-link">
+            <i class="fas fa-handshake nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Deals</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="tasks.html" class="nav-link">
+            <i class="fas fa-check-square nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Tasks</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reports.html" class="nav-link">
+            <i class="fas fa-chart-bar nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <img
+          src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff"
+          alt="Foto profil Admin"
+          class="user-avatar"
+        >
+        <div class="user-info">
+          <p class="user-name">Admin</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+      <button class="logout-btn btn-logout" aria-label="Logout">
+        <span>
+          <i class="fas fa-sign-out-alt logout-icon" aria-hidden="true"></i>
+          <span class="logout-label">Logout</span>
+        </span>
+        <i class="fas fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <h2 class="page-title">Contacts</h2>
+      <nav class="header-nav" aria-label="Menu atas">
+        <ul>
+          <li><a href="contacts.html" class="active">Contacts</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="notification-btn" aria-label="Notifikasi">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="notif-badge" aria-live="polite"></span>
+        </button>
+        <div class="notification-card" role="region" aria-label="Panel notifikasi">
+          <ul class="notification-list"></ul>
+        </div>
+        <button class="user-menu-btn" id="userMenuBtn">
+          <span>Admin</span>
+          <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-profile">
+            <p class="user-dropdown-name">Admin</p>
+            <p class="user-dropdown-email">admin@crm.com</p>
+          </div>
+          <button class="user-dropdown-logout btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Body -->
+    <div class="page-body">
+      <!-- Contacts Table Card -->
+      <article class="card" aria-labelledby="contacts-table-heading">
+        <h3 id="contacts-table-heading" class="visually-hidden">Daftar Kontak</h3>
+
+        <!-- Toolbar -->
+        <div class="contacts-toolbar">
+          <button id="addBtn" class="btn btn-primary">
+            <i class="fas fa-plus" aria-hidden="true"></i>
+            Add Contact
+          </button>
+
+          <div class="input-group">
+            <i class="fas fa-search input-icon" aria-hidden="true"></i>
+            <input
+              type="search"
+              id="searchInput"
+              class="form-input"
+              placeholder="Search contacts..."
+              aria-label="Cari kontak"
+            >
+          </div>
+
+          <select id="filterCompany" class="form-select" aria-label="Filter by Company">
+            <option value="">Filter by Company</option>
+            <option>PT Maju</option>
+            <option>CV Sukses Sejahtera</option>
+            <option>PT Aman Sentosa</option>
+            <option>PT Lumina Creativa</option>
+            <option>PT Anugrah</option>
+            <option>UD Berkarya</option>
+          </select>
+
+          <select id="filterTag" class="form-select" aria-label="Filter by Tag">
+            <option value="">Filter by Tag</option>
+            <option>hot</option>
+            <option>retail</option>
+            <option>potential</option>
+            <option>IT</option>
+            <option>supplier</option>
+            <option>lead</option>
+            <option>e-commerce</option>
+          </select>
+
+          <button id="btnClearFilter" class="btn btn-outline">Clear Filters</button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrapper">
+          <table class="data-table" aria-label="Tabel kontak">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Company</th>
+                <th scope="col">Tags</th>
+                <th scope="col" style="text-align:center">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="contactTableBody">
+              <tr>
+                <td class="td-name">Budi Santoso</td>
+                <td>
+                  budi santoso
+                  <span class="td-sub">budi@emaill.com</span>
+                </td>
+                <td>0812 1233-879</td>
+                <td>PT Maju</td>
+                <td>
+                  <div class="tags-cell">
+                    <span class="badge badge-red">hot</span>
+                    <span class="badge badge-green">retail</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat Budi Santoso"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit Budi Santoso"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus Budi Santoso"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-name">Sari Lestari</td>
+                <td>
+                  sari lestari
+                  <span class="td-sub">sari@email.com</span>
+                </td>
+                <td>0878 832-0007</td>
+                <td>CV Sukses Sejahtera</td>
+                <td>
+                  <div class="tags-cell">
+                    <span class="badge badge-green">potential</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat Sari Lestari"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit Sari Lestari"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus Sari Lestari"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-name">Andi Wijaya</td>
+                <td>
+                  andiwijaya.com
+                  <span class="td-sub">andi@email.com</span>
+                </td>
+                <td>0878 7321-6724</td>
+                <td>PT Aman Sentosa</td>
+                <td>
+                  <div class="tags-cell">
+                    <span class="badge badge-solid-blue">IT</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat Andi Wijaya"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit Andi Wijaya"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus Andi Wijaya"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-name">Lina Hartono</td>
+                <td>
+                  linahartono.com
+                  <span class="td-sub">lina@oranalasta.com</span>
+                </td>
+                <td>0812 314 1234</td>
+                <td>PT Lumina Creativa</td>
+                <td>
+                  <div class="tags-cell">—</div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat Lina Hartono"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit Lina Hartono"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus Lina Hartono"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-name">Joko Prabowo</td>
+                <td>
+                  joko prabowo.com
+                  <span class="td-sub">joko@email.to</span>
+                </td>
+                <td>0878 873-0087</td>
+                <td>PT Anugrah</td>
+                <td>
+                  <div class="tags-cell">
+                    <span class="badge badge-gray">supplier</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat Joko Prabowo"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit Joko Prabowo"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus Joko Prabowo"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-name">Putri Rahmawati</td>
+                <td>
+                  putrirahma.com
+                  <span class="td-sub">putr15h@email.com</span>
+                </td>
+                <td>0878 7327-1234</td>
+                <td>UD Berkarya</td>
+                <td>
+                  <div class="tags-cell">
+                    <span class="badge badge-orange">lead</span>
+                    <span class="badge badge-purple">e-commerce</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn-icon" aria-label="Lihat Putri Rahmawati"><i class="far fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-edit" aria-label="Edit Putri Rahmawati"><i class="far fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-icon btn-delete" aria-label="Hapus Putri Rahmawati"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <footer class="card-body" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <p id="paginationBody" style="font-size:0.85rem; color:var(--text-muted)">Showing 1 to 6 of 120 entries</p>
+          <nav id="paginationNav" class="pagination" aria-label="Navigasi halaman">
+            <button class="page-btn">Prev</button>
+            <button class="page-btn">1</button>
+            <button class="page-btn active" aria-current="page">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">Next</button>
+          </nav>
+        </footer>
+      </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2026 CRM Dashboard. All rights reserved.</p>
+      <a href="#" class="footer-link">Contact Us</a>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/contacts.js"></script>
+</body>
+</html>

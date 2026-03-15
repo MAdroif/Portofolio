@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — CRM Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <!-- Left Brand Panel -->
+    <div class="login-brand">
+      <div class="brand-logo">CRM<span>.</span>Dashboard</div>
+      <div class="brand-tagline">
+        <h2>Kelola bisnis lebih efisien</h2>
+        <p>Pantau kontak, deals, dan tasks dalam satu platform yang terintegrasi.</p>
+      </div>
+      <div class="brand-stats">
+        <div class="stat">
+          <span class="stat-value">120</span>
+          <span class="stat-label">Contacts</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">25</span>
+          <span class="stat-label">Active Deals</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">30</span>
+          <span class="stat-label">Tasks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="login-form-wrap">
+      <h1>Selamat datang</h1>
+      <p class="subtitle">Masuk ke akun CRM Dashboard Anda</p>
+
+      <div class="error-msg" id="errorMsg">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorText">Email atau password salah.</span>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-wrap">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="admin@crm.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+            <button type="button" class="toggle-password" id="togglePass" aria-label="Toggle password">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-login" id="btnLogin">
+          <i class="fas fa-sign-in-alt"></i>
+          Masuk
+        </button>
+      </form>
+
+      <div class="demo-hint">
+        <strong>Demo credentials:</strong><br>
+        Email: <strong>admin@crm.com</strong> &nbsp;|&nbsp; Password: <strong>admin123</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deals — CRM Dashboard</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/deals.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Navigasi utama">
+    <div class="sidebar-header">
+      <h1 class="logo">CRM<br>Dashboard</h1>
+      <button class="toggle-btn" id="toggleSidebarBtn" aria-label="Toggle sidebar">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-chart-pie nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">
+            <i class="fas fa-users nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Contacts</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="deals.html" class="nav-link" aria-current="page">
+            <i class="fas fa-handshake nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Deals</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="tasks.html" class="nav-link">
+            <i class="fas fa-check-square nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Tasks</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reports.html" class="nav-link">
+            <i class="fas fa-chart-bar nav-icon" aria-hidden="true"></i>
+            <span class="nav-text">Reports</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <img
+          src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff"
+          alt="Foto profil Admin"
+          class="user-avatar"
+        >
+        <div class="user-info">
+          <p class="user-name">Admin</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+      <button class="logout-btn btn-logout" aria-label="Logout">
+        <span>
+          <i class="fas fa-sign-out-alt logout-icon" aria-hidden="true"></i>
+          <span class="logout-label">Logout</span>
+        </span>
+        <i class="fas fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <h2 class="page-title">Deals Pipeline</h2>
+      <nav class="header-nav" aria-label="Menu atas">
+        <ul>
+          <li><a href="contact.html">Contacts</a></li>
+          <li><a href="deals.html" class="active">Deals</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="notification-btn" aria-label="Notifikasi">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="notif-badge" aria-live="polite"></span>
+        </button>
+        <div class="notification-card" role="region" aria-label="Panel notifikasi">
+          <ul class="notification-list"></ul>
+        </div>
+        <button class="user-menu-btn" id="userMenuBtn">
+          <span>Admin</span>
+          <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-profile">
+            <p class="user-dropdown-name">Admin</p>
+            <p class="user-dropdown-email">admin@crm.com</p>
+          </div>
+          <button class="user-dropdown-logout btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Body -->
+    <div class="page-body">
+
+      <!-- Subheader -->
+      <div class="deals-subheader">
+        <div class="input-group">
+          <i class="fas fa-search input-icon" aria-hidden="true"></i>
+          <input id="searchInput" type="search" class="form-input" placeholder="Search deals..." aria-label="Cari deal">
+        </div>
+        <button id="addInput" class="btn btn-primary">
+          <i class="fas fa-plus" aria-hidden="true"></i>
+          Add Deal
+        </button>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="deals-stats" role="region" aria-label="Statistik deals">
+        <div class="deal-stat-card">
+          <p class="deal-stat-label">Total Deals</p>
+          <p class="deal-stat-value">25</p>
+        </div>
+        <div class="deal-stat-card">
+          <p class="deal-stat-label">Total Value</p>
+          <p class="deal-stat-value">Rp 350.000.000</p>
+        </div>
+        <div class="deal-stat-card">
+          <p class="deal-stat-label">Avg. Deal Size</p>
+          <p class="deal-stat-value">Rp 14.000.000</p>
+        </div>
+        <div class="deal-stat-card">
+          <p class="deal-stat-label">Win Rate</p>
+          <p class="deal-stat-value won">32%</p>
+          <div class="win-rate-bar">
+            <div class="win-rate-fill" style="width: 32%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kanban Board -->
+      <section class="kanban-board" aria-label="Kanban pipeline deals">
+
+        <!-- Lead -->
+        <div class="kanban-col col-lead" data-stage="lead">
+          <div class="kanban-col-header">
+            <div>
+              <div class="col-title-row">
+                <span class="col-title">Lead</span>
+                <span class="col-badge">8</span>
+              </div>
+              <p class="col-total">Rp 120.000.000</p>
+            </div>
+          </div>
+          <div class="kanban-cards">
+            <article class="deal-card">
+              <p class="deal-card-title">Website Redesign</p>
+              <p class="deal-card-company">PT Maju</p>
+              <p class="deal-card-contact">Budi Santoso</p>
+              <p class="deal-card-value">Rp 15.000.000</p>
+              <div class="deal-card-tags">
+                <span class="badge badge-red">Hot</span>
+              </div>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Due: Today</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">CRM Software</p>
+              <p class="deal-card-company">CV Sukses</p>
+              <p class="deal-card-contact">Sari Lestari</p>
+              <p class="deal-card-value">Rp 25.000.000</p>
+              <div class="deal-card-tags">
+                <span class="badge badge-orange">Urgent</span>
+              </div>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 28</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">Mobile App Project</p>
+              <p class="deal-card-company">PT Digital</p>
+              <p class="deal-card-contact">Andi Wijaya</p>
+              <p class="deal-card-value">Rp 18.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 30</span>
+              </div>
+            </article>
+          </div>
+          <button class="btn-add-deal">
+            <i class="fas fa-plus" aria-hidden="true"></i> Add Deal
+          </button>
+        </div>
+
+        <!-- Qualified -->
+        <div class="kanban-col col-qualified" data-stage="qualified">
+          <div class="kanban-col-header">
+            <div>
+              <div class="col-title-row">
+                <span class="col-title">Qualified</span>
+                <span class="col-badge">5</span>
+              </div>
+              <p class="col-total">Rp 90.000.000</p>
+            </div>
+          </div>
+          <div class="kanban-cards">
+            <article class="deal-card">
+              <p class="deal-card-title">ERP System</p>
+              <p class="deal-card-company">PT Jaya Tech</p>
+              <p class="deal-card-contact">Rudi Hartono</p>
+              <p class="deal-card-value">Rp 45.000.000</p>
+              <div class="deal-card-tags">
+                <span class="badge badge-red">Hot</span>
+              </div>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 25</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">Maintenance Contract</p>
+              <p class="deal-card-company">PT Karya</p>
+              <p class="deal-card-contact">Dewi Anggraini</p>
+              <p class="deal-card-value">Rp 10.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> May 2</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">Cloud Hosting</p>
+              <p class="deal-card-company">UD Computama</p>
+              <p class="deal-card-contact">Agus Pratayma</p>
+              <p class="deal-card-value">Rp 15.000.000</p>
+              <div class="deal-card-tags">
+                <span class="badge badge-blue">SMB</span>
+              </div>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> May 5</span>
+              </div>
+            </article>
+          </div>
+          <button class="btn-add-deal">
+            <i class="fas fa-plus" aria-hidden="true"></i> Add Deal
+          </button>
+        </div>
+
+        <!-- Proposal -->
+        <div class="kanban-col col-proposal" data-stage="proposal">
+          <div class="kanban-col-header">
+            <div>
+              <div class="col-title-row">
+                <span class="col-title">Proposal</span>
+                <span class="col-badge">5</span>
+              </div>
+              <p class="col-total">Rp 90.000.000</p>
+            </div>
+          </div>
+          <div class="kanban-cards">
+            <article class="deal-card">
+              <p class="deal-card-title">Marketing Campaign</p>
+              <p class="deal-card-company">PT Global</p>
+              <p class="deal-card-contact">Lina Marlina</p>
+              <p class="deal-card-value">Rp 20.000.000</p>
+              <div class="deal-card-tags">
+                <span class="badge badge-red">Hot</span>
+              </div>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 26</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">Website Redesign</p>
+              <p class="deal-card-company">PT Anoprah</p>
+              <p class="deal-card-contact">Budi Santoso</p>
+              <p class="deal-card-value">Rp 15.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> May 1</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">SEO Services</p>
+              <p class="deal-card-company">CV Maju</p>
+              <p class="deal-card-contact">Sari Lestari</p>
+              <p class="deal-card-value">Rp 8.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> May 6</span>
+              </div>
+            </article>
+          </div>
+          <button class="btn-add-deal">
+            <i class="fas fa-plus" aria-hidden="true"></i> Add Deal
+          </button>
+        </div>
+
+        <!-- Negotiation -->
+        <div class="kanban-col col-negotiation" data-stage="negotiation">
+          <div class="kanban-col-header">
+            <div>
+              <div class="col-title-row">
+                <span class="col-title">Negotiation</span>
+                <span class="col-badge">6</span>
+              </div>
+              <p class="col-total">Rp 40.000.000</p>
+            </div>
+          </div>
+          <div class="kanban-cards">
+            <article class="deal-card">
+              <p class="deal-card-title">Software License</p>
+              <p class="deal-card-company">PT Maya Tech</p>
+              <p class="deal-card-contact">Astori Wijayo</p>
+              <p class="deal-card-value">Rp 15.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 29</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">Hardware Purchase</p>
+              <p class="deal-card-company">PT Aay Oline</p>
+              <p class="deal-card-contact">Sari Lestari</p>
+              <p class="deal-card-value">Rp 5.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> May 5</span>
+              </div>
+            </article>
+          </div>
+          <button class="btn-add-deal">
+            <i class="fas fa-plus" aria-hidden="true"></i> Add Deal
+          </button>
+        </div>
+
+        <!-- Won -->
+        <div class="kanban-col col-won" data-stage="won">
+          <div class="kanban-col-header">
+            <div>
+              <div class="col-title-row">
+                <span class="col-title">Won</span>
+                <span class="col-badge">2</span>
+              </div>
+              <p class="col-total">Rp 15.000.000</p>
+            </div>
+          </div>
+          <div class="kanban-cards">
+            <article class="deal-card">
+              <p class="deal-card-title">Website Redesign</p>
+              <p class="deal-card-company">PT Visimedia</p>
+              <p class="deal-card-contact">Rudi Hartono</p>
+              <p class="deal-card-value">Rp 10.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="fas fa-check-circle" style="color:#16a34a" aria-hidden="true"></i> Closed Apr 20</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">Dervize & SSL</p>
+              <p class="deal-card-company">PT Boptens</p>
+              <p class="deal-card-contact">Bustari Prima</p>
+              <p class="deal-card-value">Rp 5.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="fas fa-check-circle" style="color:#16a34a" aria-hidden="true"></i> Closed Apr 22</span>
+              </div>
+            </article>
+          </div>
+          <button class="btn-add-deal">
+            <i class="fas fa-plus" aria-hidden="true"></i> Add Deal
+          </button>
+        </div>
+
+        <!-- Lost -->
+        <div class="kanban-col col-lost" data-stage="lost">
+          <div class="kanban-col-header">
+            <div>
+              <div class="col-title-row">
+                <span class="col-title">Lost</span>
+                <span class="col-badge">3</span>
+              </div>
+              <p class="col-total">Rp 15.000.000</p>
+            </div>
+          </div>
+          <div class="kanban-cards">
+            <article class="deal-card">
+              <p class="deal-card-title">App Cloud</p>
+              <p class="deal-card-company">PT Mayai Ranta</p>
+              <p class="deal-card-contact">Gosina Sentayo</p>
+              <p class="deal-card-value">Rp 25.000.000</p>
+              <div class="deal-card-tags">
+                <span class="badge badge-gray">Hnd</span>
+              </div>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 7</span>
+              </div>
+            </article>
+            <article class="deal-card">
+              <p class="deal-card-title">CRM Custom</p>
+              <p class="deal-card-company">DT Coot</p>
+              <p class="deal-card-contact">Do Jok Hageni</p>
+              <p class="deal-card-value">Rp 20.000.000</p>
+              <div class="deal-card-footer">
+                <span class="deal-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Apr 10</span>
+              </div>
+            </article>
+          </div>
+          <button class="btn-add-deal">
+            <i class="fas fa-plus" aria-hidden="true"></i> Add Deal
+          </button>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2026 CRM Dashboard. All rights reserved.</p>
+      <a href="#" class="footer-link">Contact Us</a>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/deals.js"></script>
+</body>
+</html>
