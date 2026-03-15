@@ -1,0 +1,38 @@
+/* ================================================
+   CONTACTS.CSS — Page-specific styles for Contacts
+   ================================================ */
+
+/* Toolbar above the table */
+.contacts-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.contacts-toolbar .input-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.contacts-toolbar .form-select {
+  min-width: 160px;
+}
+
+/* Tag badges inside table cells */
+.tags-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+[data-tag="hot"]        { background-color: #fee2e2; color: #b91c1c; }
+[data-tag="retail"]     { background-color: #dcfce7; color: #15803d; }
+[data-tag="potential"]  { background-color: #dcfce7; color: #15803d; }
+[data-tag="IT"]         { background-color: #2563eb; color: white; }
+[data-tag="supplier"]   { background-color: #f1f5f9; color: #475569; }
+[data-tag="lead"]       { background-color: #ffedd5; color: #c2410c; }
+[data-tag="e-commerce"] { background-color: #f3e8ff; color: #7c3aed; }
+

@@ -1,0 +1,162 @@
+/* ================================================
+   TASKS.CSS — Page-specific styles for Tasks
+   ================================================ */
+
+/* ---- Subheader toolbar ---- */
+.tasks-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tasks-toolbar .input-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ---- Tab filters ---- */
+.tasks-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.task-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 99px;
+  background-color: var(--color-white);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.task-tab:hover {
+  background-color: var(--color-bg);
+}
+
+.task-tab.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.task-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: rgba(255,255,255,0.25);
+}
+
+.task-tab:not(.active) .task-tab-count {
+  background-color: var(--color-bg);
+  color: var(--text-primary);
+}
+
+.task-tab.tab-overdue:not(.active) .task-tab-count {
+  background-color: #fee2e2;
+  color: var(--color-danger);
+}
+
+/* ---- Task table specifics ---- */
+.task-name {
+  font-weight: 500;
+  color: var(--color-primary);
+  display: block;
+}
+
+.task-name.overdue {
+  color: var(--text-primary);
+}
+
+.related-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: block;
+}
+
+.related-company {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.due-date {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.due-date.today {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.due-date.overdue {
+  color: var(--color-danger);
+}
+
+/* ---- Status badges ---- */
+.status-pending   { background-color: #fef3c7; color: #d97706; }
+.status-overdue   { background-color: #fee2e2; color: #b91c1c; }
+.status-completed { background-color: #dcfce7; color: #15803d; }
+
+/* ---- Table checkbox column ---- */
+.col-check {
+  width: 40px;
+  text-align: center;
+}
+
+/* ---- Pagination row ---- */
+.table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ------------ Modal Card View ------------ */
+.view-label {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.view-value {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  padding: 1rem 1.5rem 1.5rem;
+}
