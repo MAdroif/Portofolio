@@ -4,7 +4,7 @@ contoh: const data = await fetch('/api/dashboard/sales') */
 const DataFetching = {
   async fetchSalesData() {
     try {
-      const response = await fetch('../asset/chart.json');
+      const response = await fetch('/asset/chart.json');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -13,7 +13,8 @@ const DataFetching = {
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error('Fetch error:', error);
+      alert(`Gagal mengambil data: ${error.message || error}`);
+      // console.error('Fetch error:', error);
       return this.getFallbackData();
     }
   },
