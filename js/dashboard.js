@@ -1,35 +1,33 @@
-// ============== DATA ==============
-/* Nanti bagian ini diganti dengan fetch dari API
-contoh: const data = await fetch('/api/dashboard/sales') */
-const DataFetching = {
-  async fetchSalesData() {
-    try {
-      const response = await fetch('../asset/chart.json');
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      alert(`Gagal mengambil data: ${error.message || error}`);
-      return this.getFallbackData();
+// ============== DATA FETCHING ==============
+async function fetchSalesData() {
+  try {
+    const response = await fetch('../asset/chart.json');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  },
-  
-  getFallbackData() {
-    return {
-      "labels": ["Lead", "Qualified", "Proposal", "Won", "Lost"],
-      "values": [190, 140, 105, 75, 45],
-      "colors": ["#4361ee", "#2196F3", "#FF9800", "#4CAf50", "#F44336"]
-    };
+    
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Gagal mengambil data:', error);
+    // Fallback data jika fetch gagal
+    return getFallbackData();
   }
-};
+}
+
+// Fallback data jika ada error
+function getFallbackData() {
+  return {
+    labels: ['Lead', 'Qualified', 'Proposal', 'Won', 'Lost'],
+    values: [190, 140, 105, 75, 45],
+    colors: ['#4361ee', '#2196F3', '#FF9800', '#4CAf50', '#F44336']
+  };
+}
 
 // ============== RENDER FUNCTION ==============
 function renderSalesChart(data) {
-  const canvas =  document.getElementById('salesChart');
+  const canvas = document.getElementById('salesChart');
   if (!canvas) return;
   
   const ctx = canvas.getContext('2d');
@@ -49,7 +47,7 @@ function renderSalesChart(data) {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: { display: false},
+        legend: { display: false },
         tooltip: {
           callbacks: {
             label: (item) => ` ${item.raw} deals`
@@ -72,40 +70,39 @@ function renderSalesChart(data) {
 }
 
 // ============== INIT ==============
-const init = {
-  async initDashboard() {
-    try {
-      this.showingLoading();
+async function initDashboard() {
+  try {
+    // Tampilkan loading indicator
+    showLoading();
     
-     const data = await DataFetching.fetchSalesData();
-     renderSalesChart(data);
-     
-     this.hideLoading();
-    } catch (error) {
-      alert(`Error initializing dashboard: ${error.message || error}`);
-      showErrorMessage('Gagal memuat data dashboard');
-    }
-  },
-  
-  this.showingLoading() {
-    const container = document.getElementById('salesChartContainer');
-    if (container) {
-      container.innerHTML += `<div class="loading">Memuat data...</div>`;
-    }
-  },
-  
-  this.hideLoading() {
-    const loadingEl = document.querySelector('.loading');
-    if (loadingEl) loadingEl.remove();
-  },
-  
-  this.showErrorMessage(message) {
-    const container = document.getElementById('salesChartContainer');
-    if (container) {
-      container.innerHTML = `<div class="error-message">${message}</div>`;
-    }
+    const data = await fetchSalesData();
+    renderSalesChart(data);
+    
+    // Sembunyikan loading indicator
+    hideLoading();
+  } catch (error) {
+    console.error('Error initializing dashboard:', error);
+    showErrorMessage('Gagal memuat data dashboard');
   }
-};
+}
 
+function showLoading() {
+  const container = document.getElementById('salesChartContainer');
+  if (container) {
+    container.innerHTML += '<div class="loading">Memuat data...</div>';
+  }
+}
 
-document.addEventListener('DOMContentLoaded', () => init.initDashboard());
+function hideLoading() {
+  const loadingEl = document.querySelector('.loading');
+  if (loadingEl) loadingEl.remove();
+}
+
+function showErrorMessage(message) {
+  const container = document.getElementById('salesChartContainer');
+  if (container) {
+    container.innerHTML = `<div class="error-message">${message}</div>`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initDashboard);
