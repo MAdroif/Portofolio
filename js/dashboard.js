@@ -13,7 +13,7 @@ const DataFetching = {
       const data = await response.json();
       return data;
     } catch (error) {
-      alert(`Gagal mengambil data: ${error.message || error}`);
+      alert(`Gagal mengambil data: ${error}`);
       // console.error('Fetch error:', error);
       return this.getFallbackData();
     }
