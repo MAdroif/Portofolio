@@ -11,11 +11,11 @@ const DataFetching = {
       }
       
       const data = await response.json();
-      return data;
       alert(`Pengambilan data berhasil: ${data}`);
+      return data;
     } catch (error) {
-      alert(`Gagal mengambil data: ${error}`);
-      // console.error('Fetch error:', error);
+      alert(`Gagal mengambil data: ${error.message}`);
+      console.error('Fetch error:', error);
       return this.getFallbackData();
     }
   },
@@ -92,10 +92,10 @@ const init = {
   showLoading() {
     const container = document.getElementById('salesChartContainer');
     if (container && !document.querySelector('.loading')) {
-      const loadingDiv = document.createElemnt('div');
+      const loadingDiv = document.createElement('div');
       loadingDiv.className = 'loading';
       loadingDiv.textContent = 'Memuat data...';
-      container.appendChild(loadigDiv);
+      container.appendChild(loadingDiv);
     }
   },
   
