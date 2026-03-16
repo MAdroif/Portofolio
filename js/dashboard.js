@@ -11,7 +11,11 @@ const DataFetching = {
       }
       
       const data = await response.json();
-      alert(`Pengambilan data berhasil: ${data}`);
+
+      data.labels.forEach((label, index) => {
+        pesan += `${index+1}. ${label}: ${data.values[index]} deals (${data.colors[index]})\n`;
+      });
+      alert(`Pengambilan data berhasil: ${pesan}`);
       return data;
     } catch (error) {
       alert(`Gagal mengambil data: ${error.message}`);
