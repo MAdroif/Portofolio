@@ -4,7 +4,7 @@ contoh: const data = await fetch('/api/dashboard/sales') */
 const DataFetching = {
   async fetchSalesData() {
     try {
-      const response = await fetch('/asset/chart.json');
+      const response = await fetch('asset/chart.json');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -90,8 +90,11 @@ const init = {
   
   showLoading() {
     const container = document.getElementById('salesChartContainer');
-    if (container) {
-      container.innerHTML += `<div class="loading">Memuat data...</div>`;
+    if (container && !document.querySelector('.loading')) {
+      const loadingDiv = document.createElemnt('div');
+      loadingDiv.className = 'loading';
+      loadingDiv.textContent = 'Memuat data...';
+      container.appendChild(loadigDiv);
     }
   },
   
