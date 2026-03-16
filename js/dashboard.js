@@ -12,6 +12,7 @@ const DataFetching = {
       
       const data = await response.json();
 
+      let pesan = '✅ Data berhasil di-load:\n\n';
       data.labels.forEach((label, index) => {
         pesan += `${index+1}. ${label}: ${data.values[index]} deals (${data.colors[index]})\n`;
       });
