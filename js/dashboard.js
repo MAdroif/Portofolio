@@ -75,31 +75,31 @@ function renderSalesChart(data) {
 const init = {
   async initDashboard() {
     try {
-      showingLoading();
+      this.showingLoading();
     
      const data = await DataFetching.fetchSalesData();
      renderSalesChart(data);
      
-     hideLoading();
+     this.hideLoading();
     } catch (error) {
       alert(`Error initializing dashboard: ${error.message || error}`);
       showErrorMessage('Gagal memuat data dashboard');
     }
   },
   
-  showingLoading() {
+  this.showingLoading() {
     const container = document.getElementById('salesChartContainer');
     if (container) {
       container.innerHTML += `<div class="loading">Memuat data...</div>`;
     }
   },
   
-  hideLoading() {
+  this.hideLoading() {
     const loadingEl = document.querySelector('.loading');
     if (loadingEl) loadingEl.remove();
   },
   
-  showErrorMessage(message) {
+  this.showErrorMessage(message) {
     const container = document.getElementById('salesChartContainer');
     if (container) {
       container.innerHTML = `<div class="error-message">${message}</div>`;
