@@ -12,6 +12,7 @@ const DataFetching = {
       
       const data = await response.json();
       return data;
+      alert(`Pengambilan data berhasil: ${data}`);
     } catch (error) {
       alert(`Gagal mengambil data: ${error}`);
       // console.error('Fetch error:', error);
