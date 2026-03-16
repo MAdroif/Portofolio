@@ -14,7 +14,7 @@ const DataFetching = {
 
       let pesan = '✅ Data berhasil di-load:\n\n';
       data.labels.forEach((label, index) => {
-        pesan += `${index+1}. ${label}: ${data.values[index]} deals (${data.colors[index]})\n`;
+        pesan += `${index+1}. ${label}: ${data.values[index]} deals\n`;
       });
       alert(`Pengambilan data berhasil: ${pesan}`);
       return data;
