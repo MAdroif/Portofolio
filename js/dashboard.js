@@ -87,10 +87,11 @@ const init = {
       const data = await DataFetching.fetchSalesData();
       renderSalesChart(data);
      
-      this.hideLoading();
     } catch (error) {
       console.error('Dashboard error:', error);
       this.showErrorMessage('Gagal memuat data dashboard');
+    } finally {
+      this.hideLoading();
     }
   },
   
