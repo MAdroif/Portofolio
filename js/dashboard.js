@@ -1,3 +1,6 @@
+let chartInstance = null;
+
+
 // ============== DATA ==============
 /* Nanti bagian ini diganti dengan fetch dari API
 contoh: const data = await fetch('/api/dashboard/sales') */
@@ -40,8 +43,12 @@ function renderSalesChart(data) {
   if (!canvas) return;
   
   const ctx = canvas.getContext('2d');
+
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
   
-  new Chart(ctx, {
+  chartInstance = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: data.labels,
