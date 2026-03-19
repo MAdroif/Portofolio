@@ -7,7 +7,7 @@ contoh: const data = await fetch('/api/dashboard/sales') */
 const DataFetching = {
   async fetchSalesData() {
     try {
-      const response = await fetch('/asset/chart.json');
+      const response = await fetch('asset/chart.json');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
