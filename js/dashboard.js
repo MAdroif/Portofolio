@@ -8,6 +8,8 @@ const DataFetching = {
   async fetchSalesData() {
     try {
       const response = await fetch('asset/chart.json');
+      const response = await fetch('chart.json');
+      const response = await fetch('./chart.json);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
