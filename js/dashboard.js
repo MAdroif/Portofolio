@@ -6,28 +6,39 @@ let chartInstance = null;
 contoh: const data = await fetch('/api/dashboard/sales') */
 const DataFetching = {
   async fetchSalesData() {
-    try {
-      const response = await fetch('asset/chart.json');
-      const response = await fetch('chart.json');
-      const response = await fetch('./chart.json);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      
-      const data = await response.json();
 
-      let pesan = '✅ Data berhasil di-load:\n\n';
-      data.labels.forEach((label, index) => {
-        pesan += `${index+1}. ${label}: ${data.values[index]} deals\n`;
-      });
-      alert(`Pengambilan data berhasil: ${pesan}`);
-      return data;
-    } catch (error) {
-      alert(`Gagal mengambil data: ${error.message}`);
-      console.error('Fetch error:', error);
-      return this.getFallbackData();
+    const pathToTry = [
+      'asset/chart.json',
+      'chart.json',
+      './chart.json',
+      '/asset/chart.json'
+    ];
+
+    for (const path of parthToTry) {
+      try {
+        const response = await fetch(path);
+        
+        if (response.ok) {
+          const data = await response.json();
+          alert(`Data ditemukan di: ${path}`);
+          return data;
+        }
+        // const data = await response.json();
+  
+        // let pesan = '✅ Data berhasil di-load:\n\n';
+        // data.labels.forEach((label, index) => {
+        //   pesan += `${index+1}. ${label}: ${data.values[index]} deals\n`;
+        // });
+        // alert(`Pengambilan data berhasil: ${pesan}`);
+        // return data;
+      } catch (e) {
+        alert(`Gagal di: ${path}`);
+        console.error('Fetch error:', error);
+      }
     }
+
+    alert('Menggunakan data fallback');
+    return this.getFallbackData();
   },
   
   getFallbackData() {
