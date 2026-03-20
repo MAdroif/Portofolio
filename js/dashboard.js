@@ -14,7 +14,7 @@ const DataFetching = {
       '/asset/chart.json'
     ];
 
-    for (const path of parthToTry) {
+    for (const path of pathToTry) {
       try {
         const response = await fetch(path);
         
@@ -33,7 +33,7 @@ const DataFetching = {
         // return data;
       } catch (e) {
         alert(`Gagal di: ${path}`);
-        console.error('Fetch error:', error);
+        console.error('Fetch error:', e);
       }
     }
 
