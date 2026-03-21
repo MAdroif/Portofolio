@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "message": "New deal closed with ABC Corporation",
+    "read": false,
+    "timestamp": "2 jam yang lalu"
+  },
+  {
+    "id": 2,
+    "message": "Task deadline approaching in 2 hours",
+    "read": true,
+    "timestamp": "03.00"
+  },
+  {
+    "id": 3,
+    "message": "Meeting scheduled for tomorrow at 10 AM",
+    "read": false,
+    "timestamp": "10.12"
+  },
+  {
+    "id": 4,
+    "message": "Your report has been approved",
+    "read": true,
+    "timestamp": "9.30"
+  },
+  {
+    "id": 5,
+    "message": "New comment on your project",
+    "read": false,
+    "timestamp": "5.20"
+  },
+  {
+    "id": 6,
+    "message": "Budget request submitted successfully",
+    "read": true,
+    "timestamp": "8.20"
+  },
+  {
+    "id": 7,
+    "message": "System maintenance scheduled for tonight",
+    "read": false,
+    "timestamp": "12.00"
+  },
+  {
+    "id": 8,
+    "message": "Team member mentioned you in a discussion",
+    "read": false,
+    "timestamp": "14.00"
+  }
+]
