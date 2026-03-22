@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Budi Santoso",
+    "email": "budi@emaill.com",
+    "phone": "0812 1233-879",
+    "company": "PT Maju",
+    "tags": ["hot", "retail"]
+  },
+  {
+    "id": 2,
+    "name": "Sari Lestari",
+    "email": "sari@email.com",
+    "phone": "0878 832-0007",
+    "company": "CV Sukses Sejahtera",
+    "tags": ["potential"]
+  },
+  {
+    "id": 3,
+    "name": "Andi Wijaya",
+    "email": "andi@email.com",
+    "phone": "0878 7321-6724",
+    "company": "PT Aman Sentosa",
+    "tags": ["IT"]
+  },
+  {
+    "id": 4,
+    "name": "Lina Hartono",
+    "email": "lina@oranalasta.com",
+    "phone": "0812 314 1234",
+    "company": "PT Lumina Creativa",
+    "tags": []
+  },
+  {
+    "id": 5,
+    "name": "Joko Prabowo",
+    "email": "joko@email.to",
+    "phone": "0878 873-0087",
+    "company": "PT Anugrah",
+    "tags": ["supplier"]
+  },
+  {
+    "id": 6,
+    "name": "Putri Rahmawati",
+    "email": "putr15h@email.com",
+    "phone": "0878 7327-1234",
+    "company": "UD Berkarya",
+    "tags": ["lead", "e-commerce"]
+  },
+  {
+    "id": 7,
+    "name": "Rizky Firmansyah",
+    "email": "rizky@mailbox.id",
+    "phone": "0813 5541-2290",
+    "company": "PT Nusantara Digital",
+    "tags": ["hot", "IT"]
+  },
+  {
+    "id": 8,
+    "name": "Dewi Anggraini",
+    "email": "dewi@anggraini.co",
+    "phone": "0877 6612-3345",
+    "company": "CV Mitra Mandiri",
+    "tags": ["potential", "retail"]
+  },
+  {
+    "id": 9,
+    "name": "Hendra Kurniawan",
+    "email": "hendra@kurniamail.com",
+    "phone": "0821 9900-4477",
+    "company": "PT Sejahtera Abadi",
+    "tags": ["supplier"]
+  },
+  {
+    "id": 10,
+    "name": "Mega Pratiwi",
+    "email": "mega@pratiwi.net",
+    "phone": "0857 3321-8800",
+    "company": "UD Cahaya Baru",
+    "tags": ["lead"]
+  },
+  {
+    "id": 11,
+    "name": "Fajar Nugroho",
+    "email": "fajar@nugroho.io",
+    "phone": "0819 7743-5566",
+    "company": "PT Karya Prima",
+    "tags": ["e-commerce", "hot"]
+  },
+  {
+    "id": 12,
+    "name": "Ratna Sari",
+    "email": "ratna@sarimail.com",
+    "phone": "0878 1122-6633",
+    "company": "CV Bintang Terang",
+    "tags": ["retail"]
+  },
+  {
+    "id": 13,
+    "name": "Agus Setiawan",
+    "email": "agus@setiawan.biz",
+    "phone": "0812 6655-9900",
+    "company": "PT Makmur Jaya",
+    "tags": ["supplier", "potential"]
+  },
+  {
+    "id": 14,
+    "name": "Citra Dewi",
+    "email": "citra@dewi.co.id",
+    "phone": "0896 4433-2211",
+    "company": "UD Sinar Harapan",
+    "tags": ["lead", "IT"]
+  },
+  {
+    "id": 15,
+    "name": "Bambang Susilo",
+    "email": "bambang@susilo.com",
+    "phone": "0813 2200-7788",
+    "company": "PT Graha Sentosa",
+    "tags": []
+  },
+  {
+    "id": 16,
+    "name": "Yuni Astuti",
+    "email": "yuni@astuti.net",
+    "phone": "0877 5544-3322",
+    "company": "CV Delta Persada",
+    "tags": ["e-commerce"]
+  },
+  {
+    "id": 17,
+    "name": "Taufik Hidayat",
+    "email": "taufik@hidayat.id",
+    "phone": "0856 8899-1100",
+    "company": "PT Omega Teknologi",
+    "tags": ["hot", "IT"]
+  },
+  {
+    "id": 18,
+    "name": "Nanda Permata",
+    "email": "nanda@permata.co",
+    "phone": "0821 3344-6677",
+    "company": "UD Permata Indah",
+    "tags": ["retail", "lead"]
+  },
+  {
+    "id": 19,
+    "name": "Surya Wijaksono",
+    "email": "surya@wijaksono.com",
+    "phone": "0812 7788-4455",
+    "company": "PT Surya Cemerlang",
+    "tags": ["supplier"]
+  },
+  {
+    "id": 20,
+    "name": "Lia Handayani",
+    "email": "lia@handayani.web.id",
+    "phone": "0878 9900-1122",
+    "company": "CV Handayani Group",
+    "tags": ["potential", "e-commerce"]
+  }
+]
