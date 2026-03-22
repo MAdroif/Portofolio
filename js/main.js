@@ -139,11 +139,11 @@ const Notification = {
   
   async loadData() {
     try {
-      const saved = localStorage.getItem('notifications');
-      if (saved) {
-        this.data = JSON.parse(saved);
-        return;
-        }
+      // const saved = localStorage.getItem('notifications');
+      // if (saved) {
+      //   this.data = JSON.parse(saved);
+      //   return;
+      //   }
     
       const response = await fetch('asset/notifications.json');
       
