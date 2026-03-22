@@ -74,7 +74,7 @@ const Notification = {
     {
       "id": 1,
       "message": "New deal closed with ABC Corporation",
-      "read": false,
+      "read": true,
       "timestamp": "2 jam yang lalu"
     },
     {
