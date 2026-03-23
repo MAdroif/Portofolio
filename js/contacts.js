@@ -7,7 +7,7 @@ const Database = {
       email: "budi@emaill.com",
       phone: "0812 1233-879",
       company: "PT Maju",
-      tags: ["hot", "retail"],
+      tags: ["retail"],
     },
     {
       id: 2,
