@@ -172,7 +172,7 @@ const Database = {
   
   async loadData() {
     try {
-      const response = await fetch('asset/contacts.json');
+      const response = await fetch('/asset/contacts.json');
       
       if (!response.ok) {
         throw new Error(`Gagal mengambil data kontak: ${response.status}`);
