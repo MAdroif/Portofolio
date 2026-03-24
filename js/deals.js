@@ -172,12 +172,12 @@ const Database = {
       const response = await fetch('asset/deals.json');
       
       if (!response.ok) {
-        throw new Error(`Gagal mengambil deals: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
       
       this.data = await response.json();
     } catch (e) {
-      alert(`Error loading data: ${e}`);
+      alert(`Gagal mengambil deals: ${e}`);
     }
   }
 };
