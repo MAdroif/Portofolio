@@ -206,13 +206,13 @@ const Deals = {
   render(data) {
     // Hitung Statistik
     const totalDeals = data.length;
-    const totalValue = data.reduce((sum, deal) => + sum deal.value, 0);
+    const totalValue = data.reduce((sum, deal) => sum + deal.value, 0);
     const avgDealSize = totalDeals > 0 ? totalValue / totalDeals : 0;
     const wonDeals = data.filter(deal => deal.stage === 'won').length;
     const winRate = totalDeals > 0 ? (wonDeals / totalDeals) * 100 : 0;
     
     // Update statistik cards
-    const statsContainer = document.querySelector('.deals.stats');
+    const statsContainer = document.querySelector('.deals-stats');
     if (statsContainer) {
       statsContainer.innerHTML = `
         <div class="deal-stat-card">
