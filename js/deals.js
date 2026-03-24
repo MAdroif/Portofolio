@@ -275,7 +275,7 @@ const Deals = {
               aria-hidden="true"></i>${deal.dueDate ? `Due: ${deal.dueDate}` : `Closed: ${deal.closedDate}`}</span>
             </div>
           </article>
-        `
+        `;
       });
       
       if (deals.length === 0) {
