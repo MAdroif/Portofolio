@@ -324,7 +324,7 @@ const TaskDatabase = {
       
       this.data = await response.json();
     } catch (e) {
-      TaskDOM.tbody.innerHTML = `<tr><td colspan="6">Gagal load data</td></tr>`;
+      TaskDOM.tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Gagal load data</td></tr>`;
     }
   }
 };
