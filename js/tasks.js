@@ -1,308 +1,308 @@
 /* ==================== DATABASE ==================== */
 const TaskDatabase = {
-  // data: [
-  //   {
-  //     id: 1,
-  //     title: "Call Mr. Andi",
-  //     relatedType: "contact",
-  //     relatedName: "Andi Wijaya",
-  //     relatedCompany: null,
-  //     dueDate: "2024-04-22",
-  //     isToday: true,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Follow Up Meeting with Sari",
-  //     relatedType: "contact",
-  //     relatedName: "Sari Lestari",
-  //     relatedCompany: null,
-  //     dueDate: "2024-04-26",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Email Proposal to PT Sukses",
-  //     relatedType: "deal",
-  //     relatedName: "Software License",
-  //     relatedCompany: "PT Sukses Sejahtera",
-  //     dueDate: "2024-04-25",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Follow Up on CRM Implementation",
-  //     relatedType: "deal",
-  //     relatedName: "CRM Implementation",
-  //     relatedCompany: "PT Globalindo",
-  //     dueDate: "2024-04-30",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Send Invoice to Toko Jaya",
-  //     relatedType: "deal",
-  //     relatedName: "POS System",
-  //     relatedCompany: "Toko Makmur",
-  //     dueDate: "2024-04-19",
-  //     isToday: false,
-  //     status: "overdue"
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Schedule Demo for PT Anugrah",
-  //     relatedType: "contact",
-  //     relatedName: "Joko Prabowo",
-  //     relatedCompany: "Joko Prabowo",
-  //     dueDate: "2024-04-18",
-  //     isToday: false,
-  //     status: "overdue"
-  //   },
-  //   {
-  //     id: 7,
-  //     title: "Meeting with PT Daya Pro",
-  //     relatedType: "deal",
-  //     relatedName: "Cloud Solution",
-  //     relatedCompany: "PT Daya Pro",
-  //     dueDate: "2024-04-15",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  //   {
-  //     id: 8,
-  //     title: "Send Contract to CV Mitra",
-  //     relatedType: "deal",
-  //     relatedName: "HR System",
-  //     relatedCompany: "CV Mitra Mandiri",
-  //     dueDate: "2024-04-28",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 9,
-  //     title: "Call Dewi Anggraini",
-  //     relatedType: "contact",
-  //     relatedName: "Dewi Anggraini",
-  //     relatedCompany: null,
-  //     dueDate: "2024-04-27",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 10,
-  //     title: "Present Proposal to PT Omega",
-  //     relatedType: "deal",
-  //     relatedName: "ERP Integration",
-  //     relatedCompany: "PT Omega Teknologi",
-  //     dueDate: "2024-05-02",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 11,
-  //     title: "Follow Up Quotation to UD Berkarya",
-  //     relatedType: "deal",
-  //     relatedName: "Inventory System",
-  //     relatedCompany: "UD Berkarya",
-  //     dueDate: "2024-04-17",
-  //     isToday: false,
-  //     status: "overdue"
+  data: [
+    {
+      id: 1,
+      title: "Call Mr. Andi",
+      relatedType: "contact",
+      relatedName: "Andi Wijaya",
+      relatedCompany: null,
+      dueDate: "2024-04-22",
+      isToday: true,
+      status: "pending"
+    },
+    {
+      id: 2,
+      title: "Follow Up Meeting with Sari",
+      relatedType: "contact",
+      relatedName: "Sari Lestari",
+      relatedCompany: null,
+      dueDate: "2024-04-26",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 3,
+      title: "Email Proposal to PT Sukses",
+      relatedType: "deal",
+      relatedName: "Software License",
+      relatedCompany: "PT Sukses Sejahtera",
+      dueDate: "2024-04-25",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 4,
+      title: "Follow Up on CRM Implementation",
+      relatedType: "deal",
+      relatedName: "CRM Implementation",
+      relatedCompany: "PT Globalindo",
+      dueDate: "2024-04-30",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 5,
+      title: "Send Invoice to Toko Jaya",
+      relatedType: "deal",
+      relatedName: "POS System",
+      relatedCompany: "Toko Makmur",
+      dueDate: "2024-04-19",
+      isToday: false,
+      status: "overdue"
+    },
+    {
+      id: 6,
+      title: "Schedule Demo for PT Anugrah",
+      relatedType: "contact",
+      relatedName: "Joko Prabowo",
+      relatedCompany: "Joko Prabowo",
+      dueDate: "2024-04-18",
+      isToday: false,
+      status: "overdue"
+    },
+    {
+      id: 7,
+      title: "Meeting with PT Daya Pro",
+      relatedType: "deal",
+      relatedName: "Cloud Solution",
+      relatedCompany: "PT Daya Pro",
+      dueDate: "2024-04-15",
+      isToday: false,
+      status: "completed"
+    },
+    {
+      id: 8,
+      title: "Send Contract to CV Mitra",
+      relatedType: "deal",
+      relatedName: "HR System",
+      relatedCompany: "CV Mitra Mandiri",
+      dueDate: "2024-04-28",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 9,
+      title: "Call Dewi Anggraini",
+      relatedType: "contact",
+      relatedName: "Dewi Anggraini",
+      relatedCompany: null,
+      dueDate: "2024-04-27",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 10,
+      title: "Present Proposal to PT Omega",
+      relatedType: "deal",
+      relatedName: "ERP Integration",
+      relatedCompany: "PT Omega Teknologi",
+      dueDate: "2024-05-02",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 11,
+      title: "Follow Up Quotation to UD Berkarya",
+      relatedType: "deal",
+      relatedName: "Inventory System",
+      relatedCompany: "UD Berkarya",
+      dueDate: "2024-04-17",
+      isToday: false,
+      status: "overdue"
       
-  //   },
-  //   {
-  //     id: 12,
-  //     title: "WhatsApp Fajar Nugroho",
-  //     relatedType: "contact",
-  //     relatedName: "Fajar Nugroho",
-  //     relatedCompany: null,
-  //     dueDate: "2024-04-16",
-  //     isToday: false,
-  //     status: "overdue"
-  //   },
-  //   {
-  //     id: 13,
-  //     title: "Send Product Catalog to PT Karya Prima",
-  //     relatedType: "deal",
-  //     relatedName: "E-Commerce Platform",
-  //     relatedCompany: "PT Karya Prima",
-  //     dueDate: "2024-04-14",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  //   {
-  //     id: 14,
-  //     title: "Demo Sistem ke Hendra Kurniawan",
-  //     relatedType: "contact",
-  //     relatedName: "Hendra Kurniawan",
-  //     relatedCompany: null,
-  //     dueDate: "2024-04-13",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  //   {
-  //     id: 15,
-  //     title: "Renewal Discussion with PT Sejahtera",
-  //     relatedType: "deal",
-  //     relatedName: "Software License",
-  //     relatedCompany: "PT Sejahtera Abadi",
-  //     dueDate: "2024-05-05",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 16,
-  //     title: "Send MOU Draft to UD Cahaya Baru",
-  //     relatedType: "deal",
-  //     relatedName: "Accounting System",
-  //     relatedCompany: "UD Cahaya Baru",
-  //     dueDate: "2024-04-20",
-  //     isToday: false,
-  //     status: "overdue"
-  //   },
-  //   {
-  //     id: 17,
-  //     title: "Follow Up Trial to Agus Setiawan",
-  //     relatedType: "contact",
-  //     relatedName: "Agus Setiawan",
-  //     relatedCompany: null,
-  //     dueDate: "2024-05-01",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 18,
-  //     title: "Onboarding Meeting with CV Delta",
-  //     relatedType: "deal",
-  //     relatedName: "CRM Starter",
-  //     relatedCompany: "CV Delta Persada",
-  //     dueDate: "2024-04-12",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  //   {
-  //     id: 19,
-  //     title: "Send NDA to PT Graha Sentosa",
-  //     relatedType: "deal",
-  //     relatedName: "Cloud Migration",
-  //     relatedCompany: "PT Graha Sentosa",
-  //     dueDate: "2024-04-29",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 20,
-  //     title: "Call Taufik Hidayat",
-  //     relatedType: "contact",
-  //     relatedName: "Taufik Hidayat",
-  //     relatedCompany: null,
-  //     dueDate: "2024-04-21",
-  //     isToday: false,
-  //     status: "overdue"
-  //   },
-  //   {
-  //     id: 21,
-  //     title: "Price Negotiation with PT Nusantara",
-  //     relatedType: "deal",
-  //     relatedName: "Digital Infra",
-  //     relatedCompany: "PT Nusantara Digital",
-  //     dueDate: "2024-04-11",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  //   {
-  //     id: 22,
-  //     title: "Send Proposal to Nanda Permata",
-  //     relatedType: "contact",
-  //     relatedName: "Nanda Permata",
-  //     relatedCompany: null,
-  //     dueDate: "2024-05-03",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 23,
-  //     title: "Demo ERP ke CV Bintang Terang",
-  //     relatedType: "deal",
-  //     relatedName: "ERP Lite",
-  //     relatedCompany: "CV Bintang Terang",
-  //     dueDate: "2024-04-10",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  //   {
-  //     id: 24,
-  //     title: "Discuss Support Package with Surya Wijaksono",
-  //     relatedType: "contact",
-  //     relatedName: "Surya Wijaksono",
-  //     relatedCompany: null,
-  //     dueDate: "2024-05-06",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 25,
-  //     title: "Follow Up Payment to PT Lumina",
-  //     relatedType: "deal",
-  //     relatedName: "Design System",
-  //     relatedCompany: "PT Lumina Creativa",
-  //     dueDate: "2024-04-23",
-  //     isToday: false,
-  //     status: "overdue"
-  //   },
-  //   {
-  //     id: 26,
-  //     title: "Kirim Revisi Kontrak ke UD Permata",
-  //     relatedType: "deal",
-  //     relatedName: "POS Premium",
-  //     relatedCompany: "UD Permata Indah",
-  //     dueDate: "2024-05-07",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 27,
-  //     title: "Check In with Lia Handayani",
-  //     relatedType: "contact",
-  //     relatedName: "Lia Handayani",
-  //     relatedCompany: null,
-  //     dueDate: "2024-04-09",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  //   {
-  //     id: 28,
-  //     title: "Send Training Schedule to PT Makmur",
-  //     relatedType: "deal",
-  //     relatedName: "ERP Enterprise",
-  //     relatedCompany: "PT Makmur Jaya",
-  //     dueDate: "2024-04-24",
-  //     isToday: false,
-  //     status: "overdue"
-  //   },
-  //   {
-  //     id: 29,
-  //     title: "Review SLA with CV Handayani Group",
-  //     relatedType: "deal",
-  //     relatedName: "Managed IT",
-  //     relatedCompany: "CV Handayani Group",
-  //     dueDate: "2024-05-08",
-  //     isToday: false,
-  //     status: "pending"
-  //   },
-  //   {
-  //     id: 30,
-  //     title: "Closing Meeting with PT Surya Cemerlang",
-  //     relatedType: "deal",
-  //     relatedName: "Cloud ERP",
-  //     relatedCompany: "PT Surya Cemerlang",
-  //     dueDate: "2024-04-08",
-  //     isToday: false,
-  //     status: "completed"
-  //   },
-  // ],
+    },
+    {
+      id: 12,
+      title: "WhatsApp Fajar Nugroho",
+      relatedType: "contact",
+      relatedName: "Fajar Nugroho",
+      relatedCompany: null,
+      dueDate: "2024-04-16",
+      isToday: false,
+      status: "overdue"
+    },
+    {
+      id: 13,
+      title: "Send Product Catalog to PT Karya Prima",
+      relatedType: "deal",
+      relatedName: "E-Commerce Platform",
+      relatedCompany: "PT Karya Prima",
+      dueDate: "2024-04-14",
+      isToday: false,
+      status: "completed"
+    },
+    {
+      id: 14,
+      title: "Demo Sistem ke Hendra Kurniawan",
+      relatedType: "contact",
+      relatedName: "Hendra Kurniawan",
+      relatedCompany: null,
+      dueDate: "2024-04-13",
+      isToday: false,
+      status: "completed"
+    },
+    {
+      id: 15,
+      title: "Renewal Discussion with PT Sejahtera",
+      relatedType: "deal",
+      relatedName: "Software License",
+      relatedCompany: "PT Sejahtera Abadi",
+      dueDate: "2024-05-05",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 16,
+      title: "Send MOU Draft to UD Cahaya Baru",
+      relatedType: "deal",
+      relatedName: "Accounting System",
+      relatedCompany: "UD Cahaya Baru",
+      dueDate: "2024-04-20",
+      isToday: false,
+      status: "overdue"
+    },
+    {
+      id: 17,
+      title: "Follow Up Trial to Agus Setiawan",
+      relatedType: "contact",
+      relatedName: "Agus Setiawan",
+      relatedCompany: null,
+      dueDate: "2024-05-01",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 18,
+      title: "Onboarding Meeting with CV Delta",
+      relatedType: "deal",
+      relatedName: "CRM Starter",
+      relatedCompany: "CV Delta Persada",
+      dueDate: "2024-04-12",
+      isToday: false,
+      status: "completed"
+    },
+    {
+      id: 19,
+      title: "Send NDA to PT Graha Sentosa",
+      relatedType: "deal",
+      relatedName: "Cloud Migration",
+      relatedCompany: "PT Graha Sentosa",
+      dueDate: "2024-04-29",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 20,
+      title: "Call Taufik Hidayat",
+      relatedType: "contact",
+      relatedName: "Taufik Hidayat",
+      relatedCompany: null,
+      dueDate: "2024-04-21",
+      isToday: false,
+      status: "overdue"
+    },
+    {
+      id: 21,
+      title: "Price Negotiation with PT Nusantara",
+      relatedType: "deal",
+      relatedName: "Digital Infra",
+      relatedCompany: "PT Nusantara Digital",
+      dueDate: "2024-04-11",
+      isToday: false,
+      status: "completed"
+    },
+    {
+      id: 22,
+      title: "Send Proposal to Nanda Permata",
+      relatedType: "contact",
+      relatedName: "Nanda Permata",
+      relatedCompany: null,
+      dueDate: "2024-05-03",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 23,
+      title: "Demo ERP ke CV Bintang Terang",
+      relatedType: "deal",
+      relatedName: "ERP Lite",
+      relatedCompany: "CV Bintang Terang",
+      dueDate: "2024-04-10",
+      isToday: false,
+      status: "completed"
+    },
+    {
+      id: 24,
+      title: "Discuss Support Package with Surya Wijaksono",
+      relatedType: "contact",
+      relatedName: "Surya Wijaksono",
+      relatedCompany: null,
+      dueDate: "2024-05-06",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 25,
+      title: "Follow Up Payment to PT Lumina",
+      relatedType: "deal",
+      relatedName: "Design System",
+      relatedCompany: "PT Lumina Creativa",
+      dueDate: "2024-04-23",
+      isToday: false,
+      status: "overdue"
+    },
+    {
+      id: 26,
+      title: "Kirim Revisi Kontrak ke UD Permata",
+      relatedType: "deal",
+      relatedName: "POS Premium",
+      relatedCompany: "UD Permata Indah",
+      dueDate: "2024-05-07",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 27,
+      title: "Check In with Lia Handayani",
+      relatedType: "contact",
+      relatedName: "Lia Handayani",
+      relatedCompany: null,
+      dueDate: "2024-04-09",
+      isToday: false,
+      status: "completed"
+    },
+    {
+      id: 28,
+      title: "Send Training Schedule to PT Makmur",
+      relatedType: "deal",
+      relatedName: "ERP Enterprise",
+      relatedCompany: "PT Makmur Jaya",
+      dueDate: "2024-04-24",
+      isToday: false,
+      status: "overdue"
+    },
+    {
+      id: 29,
+      title: "Review SLA with CV Handayani Group",
+      relatedType: "deal",
+      relatedName: "Managed IT",
+      relatedCompany: "CV Handayani Group",
+      dueDate: "2024-05-08",
+      isToday: false,
+      status: "pending"
+    },
+    {
+      id: 30,
+      title: "Closing Meeting with PT Surya Cemerlang",
+      relatedType: "deal",
+      relatedName: "Cloud ERP",
+      relatedCompany: "PT Surya Cemerlang",
+      dueDate: "2024-04-08",
+      isToday: false,
+      status: "completed"
+    },
+  ],
   
   state: {
     search: '',
@@ -314,9 +314,9 @@ const TaskDatabase = {
   },
   
   async loadData() {
-    TaskDOM.tbody.innerHTML = `<tr><td colspan="6">Loading tasks...</td></tr>`;
+    TaskDOM.tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Loading tasks...</td></tr>`;
     try {
-      const response = await fetch('/asset/tasks.json');
+      const response = await fetch('asset/tasks.json');
       
       if (!response.ok) {
         throw new Error(`HTTP Error! Status: ${response.status}`);
