@@ -976,6 +976,7 @@ button {
 }
 
 .empty-state {
+   background-color: grey;
   text-align: center;
   color: var(--text-muted) !important;
   padding: 40px 20px;
