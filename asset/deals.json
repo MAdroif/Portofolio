@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "title": "Website Redesign",
+    "company": "PT Maju",
+    "name": "Budi Santoso",
+    "value": 15000000,
+    "stage": "lead",
+    "tag": "Hot",
+    "tagColor": "red",
+    "dueDate": "Today"
+  },
+  {
+    "id": 2,
+    "title": "CRM Software",
+    "company": "CV Sukses",
+    "name": "Sari Lestari",
+    "value": 25000000,
+    "stage": "lead",
+    "tag": "Urgent",
+    "tagColor": "orange",
+    "dueDate": "Apr 28"
+  },
+  {
+    "id": 3,
+    "title": "Mobile App Project",
+    "company": "PT Digital",
+    "name": "Andi Wijaya",
+    "value": 18000000,
+    "stage": "lead",
+    "tag": null,
+    "tagColor": null,
+    "dueDate": "Apr 30"
+  },
+  {
+    "id": 4,
+    "title": "ERP System",
+    "company": "PT Jaya Tech",
+    "name": "Rudi Hartono",
+    "value": 45000000,
+    "stage": "qualified",
+    "tag": "Hot",
+    "tagColor": "red",
+    "dueDate": "Apr 25"
+  },
+  {
+    "id": 5,
+    "title": "Maintenance Contract",
+    "company": "PT Karya",
+    "name": "Dewi Anggraini",
+    "value": 10000000,
+    "stage": "qualified",
+    "tag": null,
+    "tagColor": null,
+    "dueDate": "May 2"
+  },
+  {
+    "id": 6,
+    "title": "Cloud Hosting",
+    "company": "UD Computama",
+    "name": "Agus Pratayma",
+    "value": 15000000,
+    "stage": "qualified",
+    "tag": "SMB",
+    "tagColor": "blue",
+    "dueDate": "May 5"
+  },
+  {
+    "id": 7,
+    "title": "Marketing Campaign",
+    "company": "PT Global",
+    "name": "Lina Marlina",
+    "value": 20000000,
+    "stage": "proposal",
+    "tag": "Hot",
+    "tagColor": "red",
+    "dueDate": "Apr 26"
+  },
+  {
+    "id": 8,
+    "title": "Website Redesign",
+    "company": "PT Anoprah",
+    "name": "Budi Santoso",
+    "value": 15000000,
+    "stage": "proposal",
+    "tag": null,
+    "tagColor": null,
+    "dueDate": "May 1"
+  },
+  {
+    "id": 9,
+    "title": "SEO Services",
+    "company": "CV Maju",
+    "name": "Sari Lestari",
+    "value": 8000000,
+    "stage": "proposal",
+    "tag": null,
+    "tagColor": null,
+    "dueDate": "May 6"
+  },
+  {
+    "id": 10,
+    "title": "Software License",
+    "company": "PT Maya Tech",
+    "name": "Astori Wijayo",
+    "value": 15000000,
+    "stage": "negotiation",
+    "tag": null,
+    "tagColor": null,
+    "dueDate": "Apr 29"
+  },
+  {
+    "id": 11,
+    "title": "Hardware Purchase",
+    "company": "PT Aay Oline",
+    "name": "Sari Lestari",
+    "value": 5000000,
+    "stage": "negotiation",
+    "tag": null,
+    "tagColor": null,
+    "dueDate": "May 5"
+  },
+  {
+    "id": 12,
+    "title": "Website Redesign",
+    "company": "PT Visimedia",
+    "name": "Rudi Hartono",
+    "value": 10000000,
+    "stage": "won",
+    "tag": null,
+    "tagColor": null,
+    "closedDate": "Apr 20"
+  },
+  {
+    "id": 13,
+    "title": "Dervize & SSL",
+    "company": "PT Boptens",
+    "name": "Bustari Prima",
+    "value": 5000000,
+    "stage": "won",
+    "tag": null,
+    "tagColor": null,
+    "closedDate": "Apr 22"
+  },
+  {
+    "id": 14,
+    "title": "App Cloud",
+    "company": "PT Mayai Ranta",
+    "name": "Gosina Sentayo",
+    "value": 25000000,
+    "stage": "lost",
+    "tag": "Hnd",
+    "tagColor": "gray",
+    "dueDate": "Apr 7"
+  },
+  {
+    "id": 15,
+    "title": "CRM Custom",
+    "company": "DT Coot",
+    "name": "Do Jok Hageni",
+    "value": 20000000,
+    "stage": "lost",
+    "tag": null,
+    "tagColor": null,
+    "dueDate": "Apr 10"
+  }
+]
