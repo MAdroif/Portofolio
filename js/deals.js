@@ -169,7 +169,7 @@ const Database = {
   
   async loadData() {
     try {
-      const response = await fetch('/asset/deals.json');
+      const response = await fetch('asset/deals.json');
       
       if (!response.ok) {
         throw new Error(`Gagal mengambil deals: ${response.status}`);
