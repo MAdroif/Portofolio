@@ -316,7 +316,7 @@ const TaskDatabase = {
   async loadData() {
     TaskDOM.tbody.innerHTML = `<tr><td colspan="6">Loading tasks...</td></tr>`;
     try {
-      const response = await fetch('asset/tasks.json');
+      const response = await fetch('/asset/tasks.json');
       
       if (!response.ok) {
         throw new Error(`HTTP Error! Status: ${response.status}`);
