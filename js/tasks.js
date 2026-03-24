@@ -1,16 +1,16 @@
 /* ==================== DATABASE ==================== */
 const TaskDatabase = {
   data: [
-    {
-      id: 1,
-      title: "Call Mr. Andi",
-      relatedType: "contact",
-      relatedName: "Andi Wijaya",
-      relatedCompany: null,
-      dueDate: "2024-04-22",
-      isToday: true,
-      status: "pending"
-    },
+    // {
+    //   id: 1,
+    //   title: "Call Mr. Andi",
+    //   relatedType: "contact",
+    //   relatedName: "Andi Wijaya",
+    //   relatedCompany: null,
+    //   dueDate: "2024-04-22",
+    //   isToday: true,
+    //   status: "pending"
+    // },
     {
       id: 2,
       title: "Follow Up Meeting with Sari",
