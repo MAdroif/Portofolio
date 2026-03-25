@@ -49,7 +49,7 @@ const DataFetching = {
   getFallbackData() {
     return {
       "labels": ["Lead", "Qualified", "Proposal", "Won", "Lost"],
-      "values": [190, 140, 105, 75, 45],
+      "values": [190, 140, 105, 75, 90],
       "colors": ["#4361ee", "#2196F3", "#FF9800", "#4CAf50", "#F44336"]
     };
   }
