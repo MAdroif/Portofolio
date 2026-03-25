@@ -370,7 +370,7 @@ const Deals = {
       
       const deals = {
         id: Math.max(...Database.data.map(d => d.id)) + 1,
-        title title || 'Untitled',
+        title: title || 'Untitled',
         company,
         name,
         value: parseInt(value),
