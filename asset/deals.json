@@ -1,5 +1,15 @@
 [
-  
+  {
+    "id": 1,
+    "title": "Website Redesign",
+    "company": "PT Majuin",
+    "name": "Budi Santoso",
+    "value": 15000000,
+    "stage": "lead",
+    "tag": "Hot",
+    "tagColor": "red",
+    "dueDate": "Today"
+  },
   {
     "id": 2,
     "title": "CRM Software",
