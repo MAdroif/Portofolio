@@ -288,7 +288,7 @@ const Deals = {
   },
   
   // Crud
-  add() {
+  add(preSelectedStage = null) {
     const modal = document.createElement('div');
     modal.className = 'modal-overlay';
     modal.innerHTML = `
@@ -340,6 +340,13 @@ const Deals = {
 
     `;
     document.body.appendChild(modal);
+
+    if (preSelectedStage) {
+      const stageSelect = document.getElementById('stage');
+      if (stageSelect) {
+        stageSelect.value = preSelectedStage;
+      }
+    }
     
     document.getElementById('btnCancel').addEventListener('click', () => {
       modal.remove();
@@ -363,18 +370,19 @@ const Deals = {
       
       const deals = {
         id: Math.max(...Database.data.map(d => d.id)) + 1,
-        title,
+        title title || 'Untitled',
         company,
         name,
-        value,
+        value: parseInt(value),
         stage,
-        tag,
-        dueDate
+        tag: tag || null,
+        tagColor: null,
+        dueDate: dueDate || null
       };
       
       Database.data.push(deals);
       modal.remove();
-      this.render();
+      this.render(Database.data);
     });
   },
 
@@ -391,7 +399,19 @@ const Deals = {
     
     add.addEventListener('click', () => {
       this.add();
-    })
+    });
+
+    // Semua tombol add deal di setiap kolom
+    const addDealBtn = document.querySelectorAll('.btn-add-deal');
+    addDealBtn.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const kanbanCol = e.target.closest('.kanban-col');
+        if (kanbanCol) {
+          const stage = kanbanCol.dataset.stage;
+          this.add(stage);
+        }
+      });
+    });
   }
 }
 
